@@ -1,0 +1,11 @@
+default : hello
+
+%.ml : %.re
+	refmt -p ml $< > $@
+
+
+hello :  hello.ml
+	ocamlopt -o $@ $^
+
+clean :
+	rm -f *.cmi *.cmx *.ml *.o hello
